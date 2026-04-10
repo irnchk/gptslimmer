@@ -1,33 +1,35 @@
 # ChatGPT Long Chat Slimmer
 
-긴 ChatGPT 웹 대화에서 오래된 턴을 DOM에서 내려 브라우저 렌더링 부담을 줄이는 크롬 확장 프로그램입니다.
+[한국어](./README.ko.md)
 
-## 동작 방식
+A Chrome extension that reduces rendering load in long ChatGPT web conversations by unmounting older turns from the DOM.
 
-- ChatGPT 웹 페이지에서 대화 턴 컨테이너를 찾습니다.
-- 최신 N개 턴만 DOM에 남기고, 더 오래된 턴은 페이지에서 분리합니다.
-- 상단의 자리표시자 또는 접히는 우하단 도크에서 `이전 더 보기`, `최신만`, `전체 보기`를 선택할 수 있습니다.
-- 턴 유지 개수는 팝업과 페이지 도크에서 바로 조절되며, 설정은 각 브라우저에 로컬로 저장됩니다.
-- 모든 동작은 브라우저 안에서만 수행되며 외부 전송이 없습니다.
+## How It Works
 
-## 설치 방법
+- It finds the conversation turn container on the ChatGPT web page.
+- It keeps only the latest N turns mounted in the DOM and detaches older turns from the page.
+- You can use `Load Older`, `Latest Only`, and `Show All` from the top placeholder or the collapsible bottom-right dock.
+- The number of kept turns can be adjusted live from both the popup and the page dock, and settings are stored locally per browser.
+- Everything runs entirely inside the browser and does not send data anywhere.
 
-1. 이 폴더를 내려받거나 압축을 풉니다.
-2. Chrome에서 `chrome://extensions` 를 엽니다.
-3. 우측 상단의 **개발자 모드**를 켭니다.
-4. **압축해제된 확장 프로그램을 로드합니다**를 누릅니다.
-5. 이 폴더(`chatgpt-long-chat-slimmer`)를 선택합니다.
+## Installation
 
-## 사용법
+1. Download or extract this folder.
+2. Open `chrome://extensions` in Chrome.
+3. Turn on **Developer mode** in the top-right corner.
+4. Click **Load unpacked**.
+5. Select this folder: `chatgpt-long-chat-slimmer`.
 
-- `chatgpt.com` 또는 `chat.openai.com` 의 대화 페이지를 엽니다.
-- 확장 아이콘을 눌러 항상 남길 턴 수와 `이전 더 보기` 배치 크기를 실시간으로 조절합니다.
-- 기본값은 최근 40개 턴 유지입니다.
-- 오래된 턴을 다시 보고 싶으면 페이지 상단 자리표시자, 접힌 도크를 펼친 패널, 또는 팝업에서 `이전 더 보기`를 누릅니다.
-- 팝업에서 바꾼 값은 현재 브라우저에만 저장되므로 Chrome, Edge, Arc 등에서 각각 다르게 맞출 수 있습니다.
+## Usage
 
-## 주의점
+- Open a conversation page on `chatgpt.com` or `chat.openai.com`.
+- Click the extension icon and adjust the number of turns to keep and the `Load Older` batch size in real time.
+- The default behavior keeps the most recent 40 turns mounted.
+- If you want to revisit older turns, use `Load Older` from the top placeholder, the expanded dock panel, or the popup.
+- Because settings are stored locally, you can use different limits in Chrome, Edge, Arc, and other Chromium-based browsers.
 
-- ChatGPT 웹 DOM 구조는 비공개 구현이라 바뀔 수 있습니다. 구조가 크게 바뀌면 선택자 업데이트가 필요할 수 있습니다.
-- 이 버전은 서버 응답 속도 자체가 아니라 **브라우저 렌더링/스크롤/입력 렉** 완화를 목표로 합니다.
-- 현재 구현은 더 안전한 DOM 기반 경량화 방식이며, 네트워크 응답을 가로채는 방식은 사용하지 않습니다.
+## Notes
+
+- ChatGPT's web DOM structure is private implementation detail and may change. If it changes significantly, the selectors may need updates.
+- This version targets **browser rendering, scrolling, and input lag** reduction rather than server response speed.
+- The current implementation uses a safer DOM-based slimming approach and does not intercept network responses.
