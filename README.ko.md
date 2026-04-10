@@ -1,6 +1,7 @@
 # ChatGPT Long Chat Slimmer
 
-[English](./README.md)
+[![English](https://img.shields.io/badge/English-334155?style=for-the-badge)](./README.md)
+![한국어](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-2563eb?style=for-the-badge)
 
 긴 ChatGPT 웹 대화에서 오래된 턴을 DOM에서 내려 브라우저 렌더링 부담을 줄이는 크롬 확장 프로그램입니다.
 
